@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<h1>FatEar</h1>
+<h2 align="right"> Welcome <a href="/profile"> {{username}} </a></h2>
+<h4 align="right"><a href="/logout">Logout</a></h4>
+</head>
+<body>
+
+<center>Home &nbsp <a href="/registered_search">Search</a> &nbsp <a href="/friends">Friends</a></center>
+
+<style type="text/css">
+	table, th, td{
+		border: 1px solid black;
+	}
+</style>
+
+<style>
+.inline {
+  display: inline;
+}
+
+.link-button {
+  background: none;
+  border: none;
+  color: blue;
+  text-decoration: underline;
+  cursor: pointer;
+  font-size: 1em;
+  font-family: serif;
+}
+.link-button:focus {
+  outline: none;
+}
+.link-button:active {
+  color:red;
+}
+</style>
+
+Your Recommendations
+
+<br>
+</br>
+
+Recently Reviewed by your Friends & Followees:
+
+<br>
+
+<table>
+	<th>Username</th>
+	<th>Title</th>
+	<th>Artist</th>
+	<th>Album</th>
+	<th>Review</th>
+
+{% for line in songs2 %}
+	<tr>
+		<td>{{line.follows}}</td>
+		<td>
+			<form method="POST" action="registered_song" class="inline">
+				<input type="hidden">
+  					<button type="submit" name="songid" value='{{line.songID}}' class="link-button">
+						{{line.title}}
+  					</button>
+			</form>
+		</td>
+		<td>{{line.singer}}</td>
+		<td>{{line.albumName}}</td>
+		<td>{{line.reviewText}}</td>
+	</tr>
+{% endfor %}
+</table>
+
+<br>
+
+Recently Released by Artists you're Fan of:
+
+<br>
+
+<table>
+	<th>Title</th>
+	<th>Artist</th>
+	<th>Album</th>
+
+{% for line in songs1 %}
+	<tr>
+		<td>
+			<form method="POST" action="registered_song" class="inline">
+				<input type="hidden">
+  					<button type="submit" name="songid" value='{{line.songID}}' class="link-button">
+						{{line.title}}
+  					</button>
+			</form>
+		</td>
+		<td>{{line.singer}}</td>
+		<td>{{line.albumName}}</td>
+	</tr>
+{% endfor %}
+</table>
+
+</body>
+
+
+</html>

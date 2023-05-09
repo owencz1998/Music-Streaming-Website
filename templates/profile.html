@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<h1>FatEar</h1>
+<h2 align="right"> Welcome {{username}} </h2>
+<h4 align="right"><a href="/logout">Logout</a></h4>
+</head>
+<body>
+
+<style type="text/css">
+	table, th, td{
+		border: 1px solid black;
+	}
+</style>
+
+<center><a href="/home">Home</a> &nbsp <a href="/registered_search">Search</a> &nbsp <a href="/friends">Friends</a></center>
+
+First Name: {{user.fname}}
+<br>
+Last Name: {{user.lname}}
+<br>
+Username: {{user.username}}
+<br>
+Nickname: {{user.nickname}}
+
+<br>
+</br>
+
+
+Your Activity:
+<br>
+<table>
+	<th>Song</th>
+	<th>Stars</th>
+	<th>Rating Date</th>
+	<th>Review</th>
+	<th>Review Date</th>
+
+{% for line in activity %}
+	<tr>
+		<td>{{line.title}}</td>
+		<td>{{line.stars}}</td>
+		<td>{{line.ratingDate}}</td>
+		<td>{{line.reviewtext}}</td>
+		<td>{{line.reviewDate}}</td>
+	</tr>
+{% endfor %}
+</table>
+
+</html>

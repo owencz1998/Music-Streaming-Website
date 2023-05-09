@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<h1>FatEar</h1>
+<h2 align="right"> Welcome <a href="/profile"> {{username}} </a></h2>
+<h4 align="right"><a href="/logout">Logout</a></h4>
+
+</head>
+<body>
+
+<center><a href="/home">Home</a> &nbsp Search &nbsp <a href="/friends">Friends</a></center>
+
+Song Search
+<form action="/registered_songsearch" method="POST"> 
+	Genre: <input type="text" name = "genre" placeholder="Enter genre of song"/>
+	<select name="ops1" id="ops1">
+  		<option value="and">AND</option>
+  		<option value="or">OR</option>
+	</select>
+	</br>
+	Artist: <input type="text" name = "fname" placeholder="Enter firstname of the artist"/> <input type="text" name = "lname" placeholder="Enter lastname of the artist"/>
+	<select name="ops2" id="ops2">
+  		<option value="and">AND</option>
+  		<option value="or">OR</option>
+	</select>
+	</br>
+	Rating: <input type="text" name = "rating" placeholder="Enter rating of song"/> </br>
+	<input type="submit" value = Search />
+</form>
+</body>
+</html>

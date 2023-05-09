@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<h1>FatEar</h1>
+<h2 align="right"> Welcome <a href="/profile"> {{username}} </a></h2>
+<h4 align="right"><a href="/logout">Logout</a></h4>
+</head>
+<body>
+
+<center><a href="/home">Home</a> &nbsp <a href="/registered_search">Search</a> &nbsp Friends</center>
+<style type="text/css">
+	table, th, td{
+		border: 1px solid black;
+	}
+</style>
+
+Friends
+
+<table>
+	<th>Name</th>
+	<th>Username</th>
+
+{% for line in flist %}
+	<tr>
+		<td>{{line.name}}</td>
+		<td>{{line.username}}</td>
+	</tr>
+{% endfor %}
+</table>
+
+<br>
+
+Pending Requests
+
+
+<table>
+	<th>Name</th>
+	<th>Username</th>
+	<th>On</th>
+	<th>Accept</th>
+	<th>Reject</th>
+
+{% for line in friends %}
+	<tr>
+		<td>{{line.name}}</td>
+		<td>{{line.user}}</td>
+		<td>{{line.createdAt}}</td>
+		<td> 
+			<form action="/accept" method="POST">
+				<input type="hidden" name="friend" value='{{line.user}}'>
+				<input type="hidden" name="at" value='{{line.createdAt}}'>
+				<input type="submit" value="Accept">
+			</form>
+		</td>
+		<td> 
+			<form action="/reject" method="POST">
+				<input type="hidden" name="friend" value='{{line.user}}'>
+				<input type="hidden" name="at" value='{{line.createdAt}}'>
+				<input type="submit" value="Reject">
+			</form>
+		</td>
+	</tr>
+{% endfor %}
+</table>
+
+<br>
+
+<form action="/search_friends" method="POST">
+Send Friend Request
+<br>
+Name: <input type="text" name = "fname" placeholder="first name" required /> <input type="text" name = "lname" placeholder="last name" required />
+<br>
+Username (if known): <input type="text" name = "uname" placeholder="username"/>
+<br>
+<input type="submit" value = "Search" />
+
+
+</html>

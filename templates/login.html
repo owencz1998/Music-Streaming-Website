@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<h1>FatEar</h1>
+</head>
+<body>
+	<p style="text-align:right;">Login</p>
+	<p style="text-align:right;"> <a href="/register">Register</a> </p>
+	<center><a href="/">Index</a> &nbsp <a href="/search">Search</a> </center>
+	<form action="/loginAuth" method="POST">
+	<input type="text" name = "username" placeholder="username" required/> </br>
+	<input type="password" name = "password" placeholder="password" required/></br>
+	<input type="submit" value = Login />
+	{% if error %}
+		<p class="error"><strong>Error:</strong> {{error}}</p>
+	{% endif %}
+	</form>
+</body>
+
+
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<h1>FatEar</h1>
+</head>
+<body>
+	<p style="text-align:right;"> <a href="/login">Login</a> </p>
+	<p style="text-align:right;">Register</p>
+	<center> <a href="/">Index</a> &nbsp <a href="/search">Search</a> </center>
+	<form action="/registerAuth" method="POST">
+	First name <input type="text" name = "firstname" placeholder="firstname" required/> </br>
+	Last name <input type="text" name = "lastname" placeholder="lastname" required/> </br>
+	Username <input type="text" name = "username" placeholder="username" required/> </br>
+	Password <input type="password" name = "password" placeholder="password" required/></br>
+	Nickname <input type="text" name = "nickname" placeholder="nickname" required/> </br>
+	<input type="submit" value = Register />
+	{% if error %}
+		<p class="error"><strong>Error:</strong> {{error}}</p>
+	{% endif %}
+</form>
+
+<a href="/">Go back</a>
+
+</body>
+
+
+</html>
