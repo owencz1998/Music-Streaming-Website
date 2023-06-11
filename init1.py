@@ -18,8 +18,8 @@ app.secret_key = "secret key"
 #Configure MySQL
 conn = pymysql.connect(host='localhost',
                        port=3306,
-                       user='root',
-                       password='root',
+                       user='u97028_Q3VM3rGgOe',
+                       password='bM.@Y9WKrhQQ=C^UFywm^i5Q',
                        db='fatear',
                        charset='utf8mb4',
                        cursorclass=pymysql.cursors.DictCursor)
